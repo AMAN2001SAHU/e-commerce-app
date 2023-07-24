@@ -12,6 +12,10 @@ const ProdList = () => {
   return <ProductList prodDesc={prodDesc} />;
 };
 
+const Cart1 = () => {
+  return <Cart prodDesc={prodDesc} />;
+};
+
 function Paths() {
   return (
     <div>
@@ -20,7 +24,7 @@ function Paths() {
           <Route path="/" Component={Home} />
           <Route path="/list" Component={ProdList} />
           <Route path="/product/:productId" Component={ProdDescription} />
-          <Route path="/cart" Component={Cart} />
+          <Route path="/cart/:productId" Component={Cart1} />
         </Routes>
       </Router>
     </div>

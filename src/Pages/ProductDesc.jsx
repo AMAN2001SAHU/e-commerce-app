@@ -3,10 +3,8 @@ import { useParams, Link } from "react-router-dom";
 
 const ProductDesc = ({ prodDesc }) => {
   const { productId } = useParams();
-  console.log(productId);
 
   const product = prodDesc.find((p) => p.id === parseInt(productId));
-  console.log(product);
 
   if (!product) {
     return <div>Product not found</div>;
@@ -45,7 +43,10 @@ const ProductDesc = ({ prodDesc }) => {
         <h3>{product.price} </h3>
         <p>{product.description}</p>
         <button>
-          <Link to="/cart">Add To Cart</Link>
+          <Link key={product.id} to={`/cart/${product.id}`}>
+            Add To Cart
+          </Link>
+          {/* <Link key={product.id} to={`/product/${product.id}`}></Link> */}
         </button>
       </div>
     </div>
